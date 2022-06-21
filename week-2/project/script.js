@@ -12,11 +12,11 @@ welcome_btn.addEventListener('click', function () {
 
 btn.addEventListener('click', function () {
     // content.style.display = "flex";
-	// content.style.setAttribute("style");
+    // content.style.setAttribute("style");
 
 
     //按第一下新增的style值為flex(原本沒有)
-    if ( content.style.display === "flex" ){
+    if (content.style.display === "flex"){
         btn.textContent = "Read More";
         content.style.display = "none";
         arrow_dir.style.transform = "rotate(0deg) scale(3, 2)";
