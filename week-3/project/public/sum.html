@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <label>Enter Number:</label>
+    <input type="text" id="num">
+    <button type="submit" id="sub">submit!</button>
+    <p>result:<span id="result"></span></p>
+</body>
+
+<script>
+const sub = document.getElementById("sub");
+const text = document.getElementById("num");
+const result = document.getElementById("result");
+
+sub.addEventListener("click", function() {
+    const value = num.value;
+    console.log(value);
+    fetch(`http://localhost:3000/getData?number=${value}`)
+    .then((response) => {
+        return response.text();
+    })
+    .then((response) => {
+        result.textContent = response;
+    })
+    .catch((error) => {
+        console.log(`Error: $(error)`);
+    })
+});
+</script>
+</html>
