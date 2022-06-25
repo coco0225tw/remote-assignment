@@ -7,7 +7,7 @@ app.get(`/`, async (req, res) => {
     res.send(`Hello, My Server!`);
 })
 app.get(`/getData`, async (req, res) => {
-    res.send(`${(isNaN(req.query.number)) ? `Wrong Parameter` : ((1 + Number(req.query.number)) * Number(req.query.number)) / 2}`);
+    res.send(`${!(req.query.number) ? `Lack of Parameter` : (isNaN(req.query.number)) ? `Wrong Parameter` : ((1 + Number(req.query.number)) * Number(req.query.number)) / 2}`);
 })
 app.get('/sum.html', function (req, res) {
     res.sendFile('sum.html', { root: '.' });
