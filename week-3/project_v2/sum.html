@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" onblur="getVal()" />
+    <button type="submit">Submit!</button>
+    <h1></h1>
+  </body>
+</html>
+<script>
+  let submit_btn = document.querySelector('button')
+  let result = document.querySelector('h1')
+  let input = document.querySelector('input')
+  getVal = async () => {
+    const val = document.querySelector('input').value
+    let response = await fetch(`http://localhost:3000/getData?number=${val}`)
+    if (response.status === 200) result.innerHTML = await response.text()
+  }
+</script>
