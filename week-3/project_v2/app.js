@@ -9,7 +9,7 @@ app.get(`/`, async (req, res) => {
 app.get(`/getData`, async (req, res) => {
     res.send(`${!(req.query.number) ? `Lack of Parameter` : (isNaN(req.query.number)) ? `Wrong Parameter` : ((1 + Number(req.query.number)) * Number(req.query.number)) / 2}`);
 })
-app.get('/sum.html', function (req, res) {
+app.get('/sum.html', (req, res) => {
     res.sendFile('sum.html', { root: '.' });
 });
 

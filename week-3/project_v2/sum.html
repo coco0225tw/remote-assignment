@@ -13,9 +13,11 @@
   let submit_btn = document.querySelector('button')
   let result = document.querySelector('h1')
   let input = document.querySelector('input')
-  getVal = async () => {
+  
+  async function getVal() {
     const val = document.querySelector('input').value
     let response = await fetch(`http://localhost:3000/getData?number=${val}`)
-    if (response.status === 200) result.innerHTML = await response.text()
+    if (response.status === 200) { 
+      result.innerHTML = await response.text() } //statusCodeError
   }
 </script>
