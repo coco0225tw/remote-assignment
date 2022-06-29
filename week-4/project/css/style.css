@@ -1,0 +1,404 @@
+/*  */
+* {
+    box-sizing: border-box;
+    position: relative;
+    /* border: solid 1px black; */
+}
+
+body {
+    /* 用viewport出現卷軸,刪掉 */
+    /* overflow-y: display; */
+    overflow-x: hidden;
+}
+
+/* 固定在底部 ======================================================*/
+.wrapper {
+    /* 左右置中 */
+    margin: auto;
+    align-items: center;
+
+    display: flex;
+    flex-direction: column;
+}
+.wrapper_1 {
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+header {
+    flex-grow: 1;
+    flex-shrink: 0;
+}
+
+.read {
+    
+    flex-basis: 18vh;
+}
+
+
+/* header的css =========================================================*/
+header {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.nav, .welcome {
+    width: 100vw;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #e4f7ea;
+
+    padding: 10px 10px;
+    font-size: 1.2rem;
+}
+
+
+.brand {
+    position: relative;
+    left: 20px;
+    display: flex;
+    align-items: baseline;
+}
+
+.logo {
+    height: 2rem;
+}
+.title {
+    position: relative; 
+    left: 1rem;
+    font-size: 1.5rem;
+}
+/* menu */
+.menu {
+    display: flex;
+    justify-content: space-around;
+}
+.line {
+    border: solid 2px black;
+    width: 2rem;
+}
+.btn {
+    transition: 0.2s;
+}
+.trigger:hover {
+    cursor: pointer;
+}
+/* menu_1 */
+.menu_1 {
+    flex-basis: 40vw;
+}
+.menu_1 .tri_1 {
+    display: none;
+    position: relative;
+    width: 2rem;
+}
+.menu_1 .line1 {
+    position: absolute;
+    top: 0px;
+}
+.menu_1 .line2 {
+    position: absolute;
+    bottom: 0px;
+}
+/* menu_2 */
+/* .menu_1{
+    display: none;
+} */
+.menu_2 {
+    visibility: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: fixed;
+    right: 0;
+
+    width: 50vw;
+    height: 100vh;
+    z-index: 1;
+
+    transform-origin: top left;
+    left: 100%;
+    /* transform : translateX(100%); load的時候會看到transform ，所以要先訂位在外面*/
+    transition-duration: 0.5s;
+    background-color: #d0d0d0;
+
+    
+
+}
+.menu_2 .btn {
+    padding: 1rem;
+    font-size: 2rem;
+    /* display: inline-block; */
+
+}
+
+.menu_2 .tri_2 {
+    /* 為什麼2條線不會自動稱上下框 */
+    flex-basis: 5vh;
+    position: relative;
+  }
+
+
+.menu_2 .tri_2 .line1 {
+    position: absolute;
+    right: 0;
+    transform: rotate(45deg) translateY(2rem);
+    /* top: 0px; */
+}
+.menu_2 .tri_2 .line2 {
+    position: absolute;
+    right: 3rem;
+    transform: rotate(-45deg) translateY(2rem);
+    /* bottom: 0px; */
+}
+
+.welcome {
+    position: relative;
+    width: 100%;
+    
+    flex-grow: 1;
+
+    /* 讓h1左右上下置中 */
+    display: flex;
+    align-items: center;
+    margin: auto;
+
+    /* h1 default撐滿, text置中 */
+    text-align: center;
+    background-image: url("https://res.cloudinary.com/dpnpf9chb/image/upload/v1654997951/code/AppWorks/remote%20assignment/week-1/dome_campus_so5lzp.jpg");
+    background-position: center bottom;
+    background-size: cover;
+
+    color: #eee;
+}
+
+.welcome h1 {
+    /* 撐開,讓h1左右上下置中 */
+    width: 100%;
+    cursor: pointer;
+}
+
+/* container的css ================================*/
+.container {
+    /* width: 70vw; */
+    /* margin: auto; */
+    /*為什麼width=1200px*設在這裡不行??*/
+    
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    /* height: calc(100% + calc(100vw - 30vw - 70vw*0.49*2 )); */
+}
+
+
+
+.rows {
+    display: flex;
+    flex-direction: row;
+    /* width: 100%; */
+    /* flex-wrap: wrap; */
+    align-items: center;
+    justify-content: space-between;
+
+    /* 為什麼用vh會出現值的拉軸 */
+    width: 70%;
+
+    /* transition: all 0.2s ease-in-out; */
+    
+}
+
+.articles {
+    /* position: relative; */
+    height: 25vh;
+    width: 49%;
+    flex-grow: auto;
+}
+
+.row_2 {
+    position: relative;
+    margin: calc(100vw - 30vw - 70vw*0.49*2 ) 0;
+}
+
+.article_1, .article_2, .article_3 ,.article_4 {
+    width: 100%;
+    height: 100%;
+
+}
+
+
+
+.article_1, .article_2, .article_3, .article_4 {
+    background-position: center top;
+    background-size: 130%;
+    /* 用center transition就不行了 */
+
+
+    transition-duration: 0.5s;
+}
+
+
+.article_1 {
+    background-image: url("https://res.cloudinary.com/dpnpf9chb/image/upload/v1654997951/code/AppWorks/remote%20assignment/week-1/dome_instruction_z7dmbj.jpg");
+}
+.article_2 {
+    background-image: url("https://res.cloudinary.com/dpnpf9chb/image/upload/v1654997951/code/AppWorks/remote%20assignment/week-1/people_in_dome_c9bpc3.jpg");
+}
+.article_3 {
+    background-image: url("https://res.cloudinary.com/dpnpf9chb/image/upload/v1654997951/code/AppWorks/remote%20assignment/week-1/dome_pic1_sdflhd.jpg");
+}
+.article_4 {
+    background-image: url("https://res.cloudinary.com/dpnpf9chb/image/upload/v1654997951/code/AppWorks/remote%20assignment/week-1/dome_pic2_bwx9hn.jpg");
+}
+
+
+
+/* cta 置中btn===================================*/
+.read {
+    width: 100%;
+    position: relative; 
+    
+}
+.read_btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    margin: auto;
+
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    
+    border-radius: 5px;
+    border: solid 3px #4b6654;
+    color: #494e4b;
+    transition: 0.3s;
+
+    cursor: pointer;
+}
+.arrow {
+    /* 這邊怪怪的阿 */
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    /* 這裡也怪怪的 */
+    transform-origin: center center;
+    transform: scale(3, 2);
+    
+
+    margin: auto;
+    color:  #4b6654;
+    transition: 0.3s;
+    
+}
+
+/* 新的content css */
+.content_2 {
+    display: none;
+
+    /* 在橫幅時超過螢幕顯示 */
+    /* position: absolute; */
+    /* top: 100vh; */
+}
+
+
+/* 動畫==================================== */
+/* article動畫 */
+.articles:hover {
+    cursor: pointer;
+}
+
+.article_1:hover, .article_2:hover, .article_3:hover, .article_4:hover {
+    background-position: center top;
+    background-size: 150%;
+    filter: brightness(0.5);
+}
+
+/* cta動畫 */
+.read_btn:hover {
+    color: #e2e2e2;
+    background-color: #4b6654;
+}
+
+/* menu動畫 */
+.btn:hover {
+    text-decoration: underline;
+    /* text-decoration: none 不行tansition, transparent才行 */
+}
+.menu_2 {
+    transition-duration: 0.5s;
+}
+
+
+/* media query============================= */
+@media screen and (min-width: 1200px) {
+    .rows {
+        width: 1200px;
+    }
+}
+
+@media screen and (min-width: 800px) and (max-width:1200px) {
+    .rows {
+        width: 70vw;
+    }
+}
+
+
+
+@media screen and (max-width:800px) {
+    
+
+    .menu_1 .tri_1 {
+        display: block;
+        height: 1rem;
+        position: absolute;
+    }
+
+    /* menu rearrange 原本想要做下拉式選單*/
+    .menu_1 a {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 500px) and (max-width:800px){
+    .rows {
+        width: 70vw;
+    }
+    
+    /* 圖片resize */
+    .article_1, .article_2, .article_3, .article_4 {
+        background-position: cover;
+        background-size: 200%;
+    }
+
+    .rows .article_1:hover, .article_2:hover, .article_3:hover, .article_4:hover {
+        background-position: center center;
+        background-size: 250%;
+    }
+}
+
+@media screen and (max-width: 500px){
+    .rows {
+        flex-direction: column;
+        justify-content: space-around;
+        position: relative;
+        height: 60vh;
+    }
+    .articles {
+        width: 80vw;
+        /* 為什麼不能打在.rows */
+
+        height: 28vh;
+        /* position: absolute; */
+        /* bottom: 20vw; */
+    }
+
+}
+
+
+/* 為什麼用vh會出現值的拉軸 */
