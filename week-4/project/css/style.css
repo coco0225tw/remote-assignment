@@ -25,7 +25,7 @@ body {
     overflow-x: hidden;
 }
 
-header {
+.header {
     flex-grow: 1;
     flex-shrink: 0;
 }
@@ -37,7 +37,7 @@ header {
 
 
 /* header的css =========================================================*/
-header {
+.header {
     display: flex;
     flex-direction: column;
     position: relative;
@@ -109,7 +109,7 @@ header {
     display: none;
 } */
 .menu_2 {
-    visibility: hidden;
+    /* visibility: hidden; */
 
     display: flex;
     flex-direction: column;
@@ -122,7 +122,8 @@ header {
     z-index: 1;
 
     transform-origin: top left;
-    left: 100%;
+    left: 00%; 
+    /* 原為100% */
     /* transform : translateX(100%); load的時候會看到transform ，所以要先訂位在外面*/
     transition-duration: 0.5s;
     background-color: #d0d0d0;
@@ -299,7 +300,7 @@ header {
 
 /* 新的content css */
 .content_2 {
-    display: none;
+    /* display: none; */
 
     /* 在橫幅時超過螢幕顯示 */
     /* position: absolute; */
