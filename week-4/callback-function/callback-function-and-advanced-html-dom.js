@@ -16,6 +16,7 @@ function ajax(src, callback) {
     xhr.send();
 }
 
+
 function render(data) {
     // your code here
     const newData = data
