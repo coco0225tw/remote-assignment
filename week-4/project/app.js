@@ -1,68 +1,113 @@
-//wrapper
-class Wrapper_1 extends React.Component {
-    render(){
-        return (
-            <div className="wrapper wrapper_1">
-                <Header />
-                <Container_1 />
-                <Read />
-            </div>
-        );
+//wrapper中的header 開一個line和container
+function Header () {
+    //更改字幕
+    // state = {
+    //     welcome_message: "Welcome to dome home"
+    // };
+    // changeText = () => {
+    //     this.setState({welcome_message: "Have a GOOD Day"});
+    // };
+    const [messageText, setMessageText] = React.useState("Welcome to dome home");
+    function handleClick() {
+        setMessageText("Have a GOOD Day");
     }
-}
 
-//wrapper中的header
-class Header extends React.Component {
-    render(){
-        return (
-            <div className="header">
-                <Nav />
-                <div class="menu menu_2">
-                    <div class="trigger tri_2">
-                        <div class="line line1"></div>
-                        <div class="line line2"></div>
-                    </div>
-                    <a href="#" class="btn nav_btn1">Intro</a>
-                    <a href="#" class="btn nav_btn2">How to Build?</a>
-                    <a href="#" class="btn nav_btn3">About US</a>
-                    <a href="#" class="btn nav_btn4">Shop</a>
-                </div>
-                <div className="welcome">
-                    <h1 class="welcome_message">Welcome to DOME HOME</h1>
-                </div>
-            </div>
-        );
-    }
-}
-//header中的nav
-class Nav extends React.Component {
-    render(){
-        return (
+    //更改選單出現與消失
+    const [isShown, setIsShown] = React.useState(false);
+    const clickToShow = event => {
+        setIsShown(current => !current);
+    };
+
+    return (
+        <div className="header">
             <div className="nav">
                 <div className="brand">
                     <img className="logo" src="https://res.cloudinary.com/dpnpf9chb/image/upload/v1654997951/code/AppWorks/remote%20assignment/week-1/house_kl3guj.png"></img>
                     <div className="title"><a href="#">DOME HOME</a></div>
                 </div>
                 <div className="menu menu_1">
-                        <div className="trigger tri_1">
-                            <div className="line line1"></div>
-                            <div className="line line2"></div>
-                        </div>
-                        <a href="#" className="btn nav_btn1">Intro</a>
-                        <a href="#" className="btn nav_btn2">How to Build?</a>
-                        <a href="#" className="btn nav_btn3">About US</a>
-                        <a href="#" className="btn nav_btn4">Shop</a>
+                    <div onClick={clickToShow}>
+                        <Tri1 />
+                    </div>
+                    <Nav />
                 </div>
+            </div>
+            {/* {isShown && <Wrapper_2 />} */}
+            {isShown && <div className="menu menu_2">
+                <div onClick={clickToShow}>
+                    <Tri2 />
+                </div>
+                <Nav />
+            </div>}
+            <div className="welcome">
+                <h1 className="welcome_message" onClick={handleClick}>{messageText}</h1>
+            </div>
+        </div>
+    );
+
+}
+
+class Tri1 extends React.Component {
+    render(){
+        return (
+            <div className="trigger tri_1">
+                <Line />
             </div>
         );
     }
 }
-//wrapper中的container
+
+class Tri2 extends React.Component {
+    render(){
+        return (
+            <div className="trigger tri_2">
+                <Line />
+            </div>
+        );
+    }
+}
+
+class Line extends React.Component {
+    render(){
+        return (
+            <div>
+                <div className="line line1"></div>
+                <div className="line line2"></div>
+            </div>
+        );
+    }
+}
+
+class Nav extends React.Component {
+    render(){
+        return (
+            <div>
+                <a href="#" className="btn nav_btn1">Intro</a>
+                <a href="#" className="btn nav_btn2">How to Build?</a>
+                <a href="#" className="btn nav_btn3">About US</a>
+                <a href="#" className="btn nav_btn4">Shop</a>
+            </div>
+        );
+    }
+}
+
+//wrapper中的container 這裡沒問題
 class Container_1 extends React.Component {
     render(){
         return (
             <div className="container content_1">
                 <h2>Learn More</h2>
+                <Content />
+            </div>
+        );
+    }
+}
+
+// 內容content 這裡沒問題
+class Content extends React.Component {
+    render(){
+        return (
+            <div>
                 <div className="rows">
                     <div className="articles"><div className="article_1"></div></div>
                     <div className="articles"><div className="article_2"></div></div>
@@ -75,8 +120,7 @@ class Container_1 extends React.Component {
         );
     }
 }
-
-//wrapper中的read
+//wrapper中的read 這裡沒問題
 class Read extends React.Component {
     render(){
         return (
@@ -88,7 +132,7 @@ class Read extends React.Component {
     }
 }
 
-//====================wrapper_2
+//wrapper_2 這裡沒問題
 class Wrapper_2 extends React.Component {
     render(){
         return (
@@ -99,56 +143,44 @@ class Wrapper_2 extends React.Component {
     }
 }
 
-//wrapper_2中的content_2
+//wrapper_2中的content_2 這裡沒問題
 class Container_2 extends React.Component {
     render(){
         return (
             <div className="container content_2">
-                <div className="rows">
-                    <div className="articles"><div className="article_1"></div></div>
-                    <div className="articles"><div className="article_2"></div></div>
-                </div>
-                <div className="rows row_2">
-                    <div className="articles"><div className="article_3"></div></div>
-                    <div className="articles"><div className="article_4"></div></div>
-                </div>
+                <Content />
             </div>
         );
     }
 }
 
-
-// class Menu extends React.Component {
-//     render(){
-//         return (
-//             <div>
-//                 <div className="trigger tri_1">
-//                     <div className="line line1"></div>
-//                     <div className="line line2"></div>
-//                 </div>
-//                 <a href="#" className="btn nav_btn1">Intro</a>
-//                 <a href="#" className="btn nav_btn2">How to Build?</a>
-//                 <a href="#" className="btn nav_btn3">About US</a>
-//                 <a href="#" className="btn nav_btn4">Shop</a>
-//             </div>
-//         );
-//     }
-// }
+//用function寫read more按鈕 這裡沒問題(css怎麼改)
+function App () {
+    //read more btn function
+    const [isShown, setIsShown] = React.useState(false);
+    const clickToShow = event => {
+        setIsShown(current => !current);
+    };
 
 
-//最大的
-class App extends React.Component {
-    render() {
-        return (
-            <div>
-                <Wrapper_1 />
-                <Wrapper_2 />
+    //read more arrow function???
+
+    return (
+        <div>
+            <div className="wrapper wrapper_1">
+                <Header />
+                <Container_1 />
+                <div className="read">
+                    <p className="read_btn" onClick={clickToShow}>Read More</p>
+                    <p className="arrow">v</p>
+                </div>
             </div>
-        );
-        
-    }
+            {isShown && <Wrapper_2 />} 
+        </div>
+    );
 }
 
+//這裡沒問題
 ReactDOM.render( //有優先權
   <App />, //放最大的 
   document.getElementById("root") //render到root

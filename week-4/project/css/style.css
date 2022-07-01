@@ -122,8 +122,8 @@ body {
     z-index: 1;
 
     transform-origin: top left;
-    left: 00%; 
-    /* 原為100% */
+    /* left: 100%;  */
+    /* 原為100% 可以改成0*/
     /* transform : translateX(100%); load的時候會看到transform ，所以要先訂位在外面*/
     transition-duration: 0.5s;
     background-color: #d0d0d0;
@@ -299,13 +299,13 @@ body {
 }
 
 /* 新的content css */
-.content_2 {
+/* .content_2 { */
     /* display: none; */
 
     /* 在橫幅時超過螢幕顯示 */
     /* position: absolute; */
     /* top: 100vh; */
-}
+/* } */
 
 
 /* 動畫==================================== */
