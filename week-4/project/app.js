@@ -102,18 +102,6 @@ class Container_1 extends React.Component {
     }
 }
 
-//wrapper中的read 這裡沒問題
-//========================================================================
-class Read extends React.Component {
-    render(){
-        return (
-            <div className="read">
-                <p className="read_btn">Read More</p>
-                {/* <p className="arrow">v</p> 還不知道怎麼做動畫 */}
-            </div>
-        );
-    }
-}
 
 //wrapper_2 這裡沒問題
 //=======================================================================
@@ -176,7 +164,7 @@ function App () {
                 <Container_1 />
                 <div className="read">
                     <p className="read_btn" onClick={clickToShow}>Read More</p>
-                    <p className="arrow">v</p>
+                    {/* <p className="arrow">v</p> 不會做css */}
                 </div>
             </div>
             {isShown && <Wrapper_2 />} 
