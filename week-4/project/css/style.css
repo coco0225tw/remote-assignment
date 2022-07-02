@@ -31,7 +31,6 @@ body {
 }
 
 .read {
-    
     flex-basis: 18vh;
 }
 
@@ -56,7 +55,6 @@ body {
     font-size: 1.2rem;
 }
 
-
 .brand {
     position: relative;
     left: 20px;
@@ -67,50 +65,58 @@ body {
 .logo {
     height: 2rem;
 }
+
 .title {
     position: relative; 
     left: 1rem;
     font-size: 1.5rem;
 }
-/* menu */
+
+/* menu ====================================================*/
 .menu {
     display: flex;
     justify-content: space-around;
 }
+
+/* 共同css */
 .line {
     border: solid 2px black;
     width: 2rem;
 }
+
 .btn {
     transition: 0.2s;
 }
+
 .trigger:hover {
     cursor: pointer;
 }
-/* menu_1 */
+
+/* menu_1 ===================================*/
 .menu_1 {
     flex-basis: 40vw;
+
 }
-.menu_1 .tri_1 {
+
+.tri_1 {
     display: none;
     position: relative;
     width: 2rem;
 }
-.menu_1 .line1 {
+
+.tri_1 .line1 {
     position: absolute;
-    top: 0px;
+    top: 0rem;
 }
-.menu_1 .line2 {
+
+.tri_1 .line2 {
     position: absolute;
-    bottom: 0px;
+    top: 0.6rem;
 }
-/* menu_2 */
-/* .menu_1{
-    display: none;
-} */
+
+/* menu_2 =====================================*/
 .menu_2 {
     /* visibility: hidden; */
-
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -118,46 +124,52 @@ body {
     right: 0;
 
     width: 50vw;
-    height: 100vh;
-    z-index: 1;
-
+    height: 100%;
+    
     transform-origin: top left;
-    /* left: 100%;  */
+    /* left: 00%;  */
     /* 原為100% 可以改成0*/
-    /* transform : translateX(100%); load的時候會看到transform ，所以要先訂位在外面*/
     transition-duration: 0.5s;
     background-color: #d0d0d0;
-
-    
-
 }
+
 .menu_2 .btn {
     padding: 1rem;
     font-size: 2rem;
     /* display: inline-block; */
-
 }
 
-.menu_2 .tri_2 {
+/* 包起來，不然無法100vh */
+.nav_2 {
+    position: fixed;
+    right: 0;
+    height: 100vh;
+    z-index: 1;
+}
+
+.tri_2 {
     /* 為什麼2條線不會自動稱上下框 */
     flex-basis: 5vh;
     position: relative;
-  }
 
+    /* 不然會按不到 */
+    z-index: 2;
+}
 
-.menu_2 .tri_2 .line1 {
+.tri_2 .line1 {
     position: absolute;
     right: 0;
     transform: rotate(45deg) translateY(2rem);
-    /* top: 0px; */
 }
-.menu_2 .tri_2 .line2 {
+
+.tri_2 .line2 {
     position: absolute;
     right: 3rem;
     transform: rotate(-45deg) translateY(2rem);
     /* bottom: 0px; */
 }
 
+/* welcom message====================================== */
 .welcome {
     position: relative;
     width: 100%;
@@ -184,7 +196,7 @@ body {
     cursor: pointer;
 }
 
-/* container的css ================================*/
+/* containere共同的css ================================*/
 .container {
     /* width: 70vw; */
     /* margin: auto; */
@@ -197,8 +209,6 @@ body {
     /* height: calc(100% + calc(100vw - 30vw - 70vw*0.49*2 )); */
 }
 
-
-
 .rows {
     display: flex;
     flex-direction: row;
@@ -209,9 +219,6 @@ body {
 
     /* 為什麼用vh會出現值的拉軸 */
     width: 70%;
-
-    /* transition: all 0.2s ease-in-out; */
-    
 }
 
 .articles {
@@ -226,23 +233,16 @@ body {
     margin: calc(100vw - 30vw - 70vw*0.49*2 ) 0;
 }
 
-.article_1, .article_2, .article_3 ,.article_4 {
+.article_1, .article_2, .article_3, .article_4 {
     width: 100%;
     height: 100%;
 
-}
-
-
-
-.article_1, .article_2, .article_3, .article_4 {
     background-position: center top;
     background-size: 130%;
     /* 用center transition就不行了 */
 
-
     transition-duration: 0.5s;
 }
-
 
 .article_1 {
     background-image: url("https://res.cloudinary.com/dpnpf9chb/image/upload/v1654997951/code/AppWorks/remote%20assignment/week-1/dome_instruction_z7dmbj.jpg");
@@ -257,14 +257,12 @@ body {
     background-image: url("https://res.cloudinary.com/dpnpf9chb/image/upload/v1654997951/code/AppWorks/remote%20assignment/week-1/dome_pic2_bwx9hn.jpg");
 }
 
-
-
-/* cta 置中btn===================================*/
+/* read more 置中btn===================================*/
 .read {
     width: 100%;
     position: relative; 
-    
 }
+
 .read_btn {
     position: absolute;
     top: 50%;
@@ -282,33 +280,23 @@ body {
 
     cursor: pointer;
 }
-.arrow {
-    /* 這邊怪怪的阿 */
+
+/* 動畫==================================== */
+
+/* 不知道怎麼做動畫 這裡有點怪 */
+/* .arrow {
     position: absolute;
     top: 70%;
     left: 50%;
-    /* 這裡也怪怪的 */
+
     transform-origin: center center;
     transform: scale(3, 2);
     
-
     margin: auto;
     color:  #4b6654;
     transition: 0.3s;
-    
-}
+} */
 
-/* 新的content css */
-/* .content_2 { */
-    /* display: none; */
-
-    /* 在橫幅時超過螢幕顯示 */
-    /* position: absolute; */
-    /* top: 100vh; */
-/* } */
-
-
-/* 動畫==================================== */
 /* article動畫 */
 .articles:hover {
     cursor: pointer;
@@ -320,23 +308,24 @@ body {
     filter: brightness(0.5);
 }
 
-/* cta動畫 */
+/* read btn動畫 */
 .read_btn:hover {
     color: #e2e2e2;
     background-color: #4b6654;
 }
 
-/* menu動畫 */
+/* nav btn動畫(有底線) */
 .btn:hover {
     text-decoration: underline;
-    /* text-decoration: none 不行tansition, transparent才行 */
 }
-.menu_2 {
+
+/* menu動畫，不會套css */
+/* .menu_2 {
     transition-duration: 0.5s;
-}
+} */
 
 
-/* media query============================= */
+/* media query========================================================== */
 @media screen and (min-width: 1200px) {
     .rows {
         width: 1200px;
@@ -349,18 +338,14 @@ body {
     }
 }
 
-
-
 @media screen and (max-width:800px) {
-    
-
-    .menu_1 .tri_1 {
+    .tri_1 {
         display: block;
         height: 1rem;
         position: absolute;
+        right: 2rem;
     }
 
-    /* menu rearrange 原本想要做下拉式選單*/
     .menu_1 a {
         display: none;
     }
@@ -389,6 +374,7 @@ body {
         justify-content: space-around;
         position: relative;
         height: 60vh;
+        flex-wrap: wrap;
     }
     .articles {
         width: 80vw;
@@ -400,6 +386,5 @@ body {
     }
 
 }
-
 
 /* 為什麼用vh會出現值的拉軸 */
