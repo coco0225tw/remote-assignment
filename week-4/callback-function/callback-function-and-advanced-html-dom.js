@@ -19,10 +19,26 @@ function ajax(src, callback) {
 
 function render(data) {
     // your code here
-    const newData = data
-        .map(product => `${product.name} 要價新台幣${product.price}元，是${product.description}<br>`)
+
+    //render product name
+    const newProduct = data
+        .map((product, index) => `
+            <tr class="product_${index+1}">
+                <td>${product.name}</td>
+                <td>$${product.price}</td>
+                <td>${product.description}</td>
+            </tr>
+        `)
         .join("");
-        document.getElementById("body").innerHTML = newData;
+        
+    const catData =Object.keys(data[0])
+        .map(prop => 
+        // 第一個字uppercase
+            `<th>` + `${prop}`.charAt(0).toUpperCase() + `${prop}`.slice(1) + `</th>`
+        )
+        .join("");
+
+    document.getElementById("table").innerHTML =  catData + newProduct;
 }
     
     
